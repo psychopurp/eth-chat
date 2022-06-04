@@ -1,195 +1,22 @@
+import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
+import Layout from "../components/layout"
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const doclistStyles = {
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
+const IndexPage: React.FC = () => {
 
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  display: `inline-block`,
-  marginBottom: 24,
-  marginRight: 12,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLinks = [
-  {
-    text: "TypeScript Documentation",
-    url: "https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/",
-    color: "#8954A8",
-  },
-  {
-    text: "GraphQL Typegen Documentation",
-    url: "https://www.gatsbyjs.com/docs/how-to/local-development/graphql-typegen/",
-    color: "#8954A8",
-  }
-]
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative" as "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-// data
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
-
-// markup
-const IndexPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
-        🎉🎉🎉
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.tsx</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={doclistStyles}>
-        {docLinks.map(doc => (
-          <li style={docLinkStyle}>
-            <a
-              style={linkStyle}
-              href={`${doc.url}?utm_source=starter&utm_medium=ts-docs&utm_campaign=minimal-starter-ts`}
-            >
-              {doc.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <ul style={listStyles}>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter-ts`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
+    <Layout pageTitle="Home page">
+      <p>I'm making this by following the Gatsby Tutorial.</p>
+      <StaticImage
+        alt="test, a reddish-brown pitbull, posing on a couch and looking stoically at the camera"
+        src="data:image/png;base64,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"
       />
-    </main>
+    </Layout>
+
   )
+
 }
 
 export default IndexPage
